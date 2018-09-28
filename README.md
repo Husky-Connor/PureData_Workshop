@@ -1,6 +1,7 @@
 # PureData_Workshop
 All the materials you'll need for the NUSOUND PureData Workshop.
 All patches were made using pd version 0.48.1.
+DOWNLOAD PURE DATA: https://puredata.info/downloads/pure-data
 There are 3 "stages" to this project, represented by 3 Pure Data Projects.
 Stage 1 uses only a single .pd file, while stages 2 and 3 use mutliple files (hence the folders).
 Here's a brief summary of each stage:
