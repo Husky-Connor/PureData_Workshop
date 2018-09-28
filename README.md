@@ -26,6 +26,10 @@ Here's a brief summary of each stage:
 	* Time: time it takes to move from Start to End
 	* Q: the q factor of the filter (try playing with the value to figure out what it does before googling it!)
 
+## MIDI SETUP
+* We can help you setup MIDI control, but here's a useful link if you want to do it yourself:
+http://write.flossmanuals.net/pure-data/using-midi/
+
 Every file has comments to help you understand the functionality of each block and what's going on.
 Feel free to download the patches and remix them!
 Possible add-ons include:
