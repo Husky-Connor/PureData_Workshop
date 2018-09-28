@@ -1,4 +1,4 @@
-#N canvas 860 362 450 300 10;
+#N canvas 513 444 785 383 10;
 #X obj 122 21 inlet;
 #X obj 80 22 r r;
 #X obj 228 28 r a;
@@ -19,6 +19,8 @@
 #X obj 281 162 pack 0 0 0;
 #X obj 232 190 route 0;
 #X text 304 179 Decay;
+#X text 371 87 This object remains the same. For a detailed explanation
+\, please refer to the same object in the stage_2 folder.;
 #X connect 0 0 5 0;
 #X connect 1 0 11 1;
 #X connect 2 0 13 1;
