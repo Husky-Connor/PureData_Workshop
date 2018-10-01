@@ -1,0 +1,87 @@
+#N canvas 90 192 1151 442 10;
+#X obj 33 37 notein;
+#X obj 33 100 pack 0 0 0;
+#X obj 117 264 *~;
+#X obj 303 295 hsl 128 15 0 1 0 0 empty empty Volume -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 117 293 dac~;
+#X obj 300 99 vsl 15 128 10 1010 1 0 empty empty A 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 300 239 - 10;
+#X obj 335 99 vsl 15 128 10 1010 1 0 empty empty D 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 335 239 - 10;
+#X obj 370 99 vsl 15 128 0.1 1 1 0 empty empty S 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 405 100 vsl 15 128 10 1010 1 0 empty empty R 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 370 239 - 0.1;
+#X obj 335 260 s d;
+#X obj 370 260 s s;
+#X obj 407 260 s r;
+#X obj 300 260 s a;
+#X obj 407 239 - 10;
+#X obj 33 69 poly 8 1;
+#X obj 34 136 route 1 2 3 4 5 6 7 8;
+#X obj 453 98 hsl 128 15 20 20000 1 0 start empty Start -2 -8 0 10
+-262144 -1 -1 0 1;
+#X obj 453 133 hsl 128 15 20 20000 1 0 end empty End -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 453 168 hsl 128 15 10 10000 1 0 time empty Time -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 453 203 hsl 128 15 1 256 1 0 empty empty Q -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 450 239 - 1;
+#X obj 450 260 s q;
+#X text 505 233 Here are some new sliders that control filter parametrs.
+Start: defines the starting corner frequency of the filter End: defines
+the ending corner frequency of the filter Time: defines the time to
+shift from Start to End Q: defines the q factor of the filter You may
+notice that only Q seems to have a send. If you right-click these sliders
+\, you'll find the first three are linear and can be sent from within
+their properties. Since Q is log \, we need to apply an offset to reach
+a value of 0 \, so we send it externally. These values are all recevied
+by the "filter" object defined in "filter.pd";
+#X obj 14 174 note;
+#X obj 45 174 note;
+#X obj 107 174 note;
+#X obj 76 174 note;
+#X obj 138 174 note;
+#X obj 169 174 note;
+#X obj 200 174 note;
+#X obj 231 174 note;
+#X connect 0 0 17 0;
+#X connect 0 1 17 1;
+#X connect 1 0 18 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 2 1;
+#X connect 5 0 6 0;
+#X connect 6 0 15 0;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 9 0 11 0;
+#X connect 10 0 16 0;
+#X connect 11 0 13 0;
+#X connect 16 0 14 0;
+#X connect 17 0 1 0;
+#X connect 17 1 1 1;
+#X connect 17 2 1 2;
+#X connect 18 0 26 0;
+#X connect 18 1 27 0;
+#X connect 18 2 29 0;
+#X connect 18 3 28 0;
+#X connect 18 4 30 0;
+#X connect 18 5 31 0;
+#X connect 18 6 32 0;
+#X connect 18 7 33 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 26 0 2 0;
+#X connect 27 0 2 0;
+#X connect 28 0 2 0;
+#X connect 29 0 2 0;
+#X connect 30 0 2 0;
+#X connect 31 0 2 0;
+#X connect 32 0 2 0;
+#X connect 33 0 2 0;

@@ -1,0 +1,20 @@
+#N canvas 190 398 649 300 10;
+#X obj 16 18 inlet;
+#X obj 16 228 outlet~;
+#X msg 16 43 bang;
+#X obj 16 80 f;
+#X obj 16 108 t b f;
+#X obj 65 39 r start;
+#X obj 16 200 line~;
+#X obj 120 39 r end;
+#X obj 163 40 r time;
+#X obj 61 135 pack 0 0 0;
+#X obj 61 163 route 0;
+#X text 156 98 Here we convert out input into a bang because we don't
+care about the actual value. the "f" object takes in the bang and outputs
+the start frequency value as a "float" (high precision value basically).
+The "t" object then sends the start frequency to "line~" to initialize
+it \, then a bang to a pack that takes in the end frequency and the
+time value and routes it to "line~" to start ramping from the start
+frequency to the end frequency over a perido defined by the time value.
+;

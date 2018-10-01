@@ -1,0 +1,30 @@
+#N canvas 676 49 724 671 10;
+#X obj 28 11 inlet;
+#X obj 28 77 unpack 0 0;
+#X obj 28 141 mtof;
+#X obj 28 205 phasor~;
+#X obj 28 412 *~;
+#X obj 28 438 outlet~;
+#X obj 173 389 / 127;
+#X obj 28 384 *~;
+#X obj 167 250 sel 0;
+#X obj 28 283 -~ 0.5;
+#X text 90 10 This file defines an object: "note". Objects defined
+by files share the file's name. "inlet" defines an inlet for the object.
+;
+#X text 131 85 "unpack" \, "mtof" and "phasor" all work the same way
+as stage 1 \; however \, this time we use a subtract "-~" object to
+center our "phasor~" signal about the x-axis (meaning the values now
+range from -0.5 to 0.5 instead of 0 to 1). This helps avoid clipping
+when we add our 8 voices together.;
+#X text 217 231 We add in a "sel" object with an argument of 0 to stop
+a velocity value of 0 (given when a note is released) from stopping
+the note. This would interfere with out envelope's release functionality.
+Wihtout this \, any note would stop immediately despite your release
+setting.;
+#X text 199 313 "adsr" is another object we've defined in a file ("adsr.pd")
+This object takes in the velocity and outputs a value from 0 to 1 just
+like our standard velocity division does. However \, this value varies
+with time \, so our synth will have dynamic dynamics so to speak.;
+#X text 89 440 "outlet~" defines out objects output.;
+#X obj 126 323 adsr;

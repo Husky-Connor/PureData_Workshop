@@ -1,0 +1,76 @@
+#N canvas 161 40 700 817 10;
+#X obj 33 37 notein;
+#X obj 33 78 poly 1 1;
+#X obj 33 159 pack 0 0 0;
+#X obj 33 257 route 1;
+#X obj 33 353 unpack 0 0;
+#X obj 33 416 mtof;
+#X obj 33 465 phasor~;
+#X obj 33 566 *~;
+#X obj 33 657 *~;
+#X obj 89 542 / 127;
+#X obj 132 639 hsl 128 15 0 1 0 0 empty empty Volume -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 33 706 dac~;
+#X text 99 410 "mtof" converts the MIDI note number into its corresponding
+frequency;
+#X text 103 447 "phasor~" generates a sawtooth wave at a frequency
+given by mtof. Since this is a subtractive synth \, we use a sawtooth
+wave to start with all the harmonics. NOTE: a phasor~ signal has a
+signal rnage of 0 to 1 by default.;
+#X text 139 520 The "/" object divides the input by its argument (127
+in this case) NOTE: there is always a space between and object definition
+and its arguments. 127 comes from the range of velocity values from
+the MIDI input. Now velocity ranges from 0 to 1 \, allowing us to easily
+scale down our signal's amplitude by multiplying the signal by the
+adjusted velocity value using the "*~" object;
+#X text 88 26 "notein" process MIDI data The out pins left-to-right
+are: pitch \, velocity \, channel;
+#X text 110 141 "pack" takes in multiple arguments and packages them
+into a single output. This means we can package all of our note info
+into a single line. The number of arguments determines the number of
+inputs and each argument's value determines the input's initial value.
+We use 3 0's to initialize 3 inputs (pitch \, velocity and voice) to
+0;
+#X text 104 59 "poly" takes in the pitch and velocity values from "notein"
+and adds a voice value \, meaning that playing another note simultaneously
+won't cause weird interference. The first arguments determines the
+number of voices and the second enables/disables voice stealing (i.e.
+new notes take over old notes";
+#X text 100 222 "route" takes in a list (like the one "pack" gives)
+and will output the contents of the list to certain outlets. The number
+of outlets equals the number of arguments plus one. The value of the
+argument controls which output the lists are sent to. Lists that start
+with the same value as the argument are sent to that argument's outlet.
+The last outlet outputs everything that cannot be sent via the other
+outlets. Voice is the first value in our list \, so we only route a
+list hat contains a voice value of one \, which is the only voice value
+possible given out "poly" object.;
+#X text 76 700 "dac~" converts are digital signal to an analog output
+via our soundcard. Depending on the settings within Pure Data \, this
+could mean your headphone jack \, your built-in speakers or any other
+audio device. The two inlets represent Left and Right audio channels.
+;
+#X text 275 637 The volume slider works exactly like our velocity operation.
+The slider ranges from 0 to 1 and the output is multiplied by the signal
+\, meaning the amplitude scales with the slider. Right click on sliders
+to view their properties!;
+#X text 114 347 "unpack" reverts the output of pack back into multiple
+outputs. Since voice was only used for routing \, there are only two
+values left to unpack: pitch and velocity.;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 1 2 2 2;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 9 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 11 0;
+#X connect 8 0 11 1;
+#X connect 9 0 7 1;
+#X connect 10 0 8 1;
