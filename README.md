@@ -5,6 +5,14 @@ DOWNLOAD PURE DATA: https://puredata.info/downloads/pure-data
 
 There are 3 "stages" to this project, represented by 3 Pure Data Projects.
 Stage 1 uses only a single .pd file, while stages 2 and 3 use mutliple files (hence the folders).
+Each stage has two versions: a "ref" version for reference, and a "diy" version.
+The reference versions are completely finished while the diy versions have all the blocks
+but still need all the connections to be made. This gives you three choices:
+* Create your own project and build everything from scracth
+* Open the diy files and fill in the connections
+* Just use the reference projects and have fun playing the synths
+Either way, the reference files are there to show you what the finished patch should look like.
+
 Here's a brief summary of each stage:
 
 ## Stage 1
