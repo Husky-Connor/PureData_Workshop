@@ -11,6 +11,7 @@ but still need all the connections to be made. This gives you three choices:
 * Create your own project and build everything from scracth
 * Open the diy files and fill in the connections
 * Just use the reference projects and have fun playing the synths
+
 Either way, the reference files are there to show you what the finished patch should look like.
 
 Here's a brief summary of each stage:
