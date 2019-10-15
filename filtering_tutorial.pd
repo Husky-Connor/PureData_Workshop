@@ -1,0 +1,162 @@
+#N canvas 497 23 897 850 10;
+#X obj 132 229 mtof;
+#X obj 132 288 phasor~;
+#X obj 132 649 *~;
+#X obj 132 698 dac~;
+#X text 175 672 "dac~" converts our digital signal to an analog output
+via our soundcard. Depending on the settings within Pure Data \, this
+could mean your headphone jack \, your built-in speakers or any other
+audio device. The two inlets represent Left and Right audio channels.
+;
+#X obj 132 309 -~ 0.5;
+#X obj 132 329 *~ 0.5;
+#X obj 132 197 r \$0-midi_note;
+#X obj 147 624 r \$0-volume;
+#X obj 182 37 vsl 15 128 50 74 0 0 \$0-midi_note empty NOTE 0 -9 0
+10 -262144 -1 -1 9500 1;
+#X obj 132 37 vsl 15 128 0 1 0 0 \$0-volume empty VOLUME 0 -9 0 10
+-262144 -1 -1 0 1;
+#X text 169 220 "mtof" converts the MIDI note number (output of the
+NOTE slider above) into its corresponding frequency;
+#X obj 132 490 lop~;
+#X obj 232 37 vsl 15 128 10 120 0 0 \$0-cutoff empty CUTOFF 0 -9 0
+10 -262144 -1 -1 4700 1;
+#X obj 153 447 r \$0-cutoff;
+#X obj 153 468 mtof;
+#X text 192 290 "phasor~" generates a sawtooth wave at a frequency
+given by mtof. Since this is a subtractive synth \, we use a sawtooth
+wave to start with all the harmonics. NOTE: a phasor~ signal has a
+signal rnage of 0 to 1 by default. We apply a -0.5 vertical shift to
+center the signal about the x-axis and reduce the amplitude by 0.5
+bc it is quite loud by default.;
+#X obj 298 447 r \$0-cutoff;
+#X obj 298 468 mtof;
+#X obj 277 490 hip~;
+#X obj 453 427 r \$0-cutoff;
+#X obj 453 448 mtof;
+#X obj 422 490 bp~, f 11;
+#X obj 485 448 r \$0-q;
+#X obj 282 37 vsl 15 128 1 10 0 0 \$0-q empty Q 0 -9 0 10 -262144 -1
+-1 5500 1;
+#X obj 485 469 int;
+#N canvas 30 88 743 300 audio_mux 0;
+#X obj 38 41 inlet~;
+#X obj 164 41 inlet~;
+#X obj 288 41 inlet~;
+#X obj 38 164 outlet~;
+#X obj 432 40 inlet;
+#X text 37 22 Input 1;
+#X text 161 22 Input 2;
+#X text 286 22 Input 3;
+#X text 428 19 Select;
+#X obj 432 63 sel 0 1 2, f 46;
+#X obj 38 82 *~;
+#X obj 164 82 *~;
+#X obj 288 82 *~;
+#X obj 53 61 r \$0-a1;
+#X obj 179 61 r \$0-a2;
+#X obj 303 61 r \$0-a3;
+#X obj 38 103 throw~ \$0-mux_out;
+#X obj 164 103 throw~ \$0-mux_out;
+#X obj 288 103 throw~ \$0-mux_out;
+#X obj 38 138 catch~ \$0-mux_out;
+#X obj 439 183 line, f 10;
+#X msg 467 162 500;
+#X floatatom 439 142 3 0 0 0 - - -;
+#X msg 451 88 0;
+#X msg 419 88 1;
+#X obj 439 204 s \$0-a1;
+#X obj 529 183 line, f 10;
+#X msg 557 162 500;
+#X floatatom 529 142 3 0 0 0 - - -;
+#X obj 529 204 s \$0-a2;
+#X obj 620 183 line, f 10;
+#X msg 648 162 500;
+#X floatatom 620 142 3 0 0 0 - - -;
+#X obj 620 204 s \$0-a3;
+#X msg 533 88 0;
+#X msg 501 88 1;
+#X msg 598 88 0;
+#X msg 629 88 1;
+#X floatatom 315 82 5 0 0 0 - - -;
+#X floatatom 189 82 5 0 0 0 - - -;
+#X floatatom 63 82 5 0 0 0 - - -;
+#X connect 0 0 10 0;
+#X connect 1 0 11 0;
+#X connect 2 0 12 0;
+#X connect 4 0 9 0;
+#X connect 9 0 23 0;
+#X connect 9 0 24 0;
+#X connect 9 1 35 0;
+#X connect 9 1 34 0;
+#X connect 9 2 37 0;
+#X connect 9 2 36 0;
+#X connect 10 0 16 0;
+#X connect 11 0 17 0;
+#X connect 12 0 18 0;
+#X connect 13 0 10 1;
+#X connect 13 0 40 0;
+#X connect 14 0 11 1;
+#X connect 14 0 39 0;
+#X connect 15 0 12 1;
+#X connect 15 0 38 0;
+#X connect 19 0 3 0;
+#X connect 20 0 25 0;
+#X connect 21 0 20 1;
+#X connect 22 0 20 0;
+#X connect 22 0 21 0;
+#X connect 23 0 28 0;
+#X connect 23 0 32 0;
+#X connect 24 0 22 0;
+#X connect 26 0 29 0;
+#X connect 27 0 26 1;
+#X connect 28 0 26 0;
+#X connect 28 0 27 0;
+#X connect 30 0 33 0;
+#X connect 31 0 30 1;
+#X connect 32 0 30 0;
+#X connect 32 0 31 0;
+#X connect 34 0 22 0;
+#X connect 34 0 32 0;
+#X connect 35 0 28 0;
+#X connect 36 0 22 0;
+#X connect 36 0 28 0;
+#X connect 37 0 32 0;
+#X restore 132 531 pd audio_mux;
+#X f 73;
+#X obj 332 35 vradio 20 1 0 3 \$0-select empty Filter_Type 0 -8 0 10
+-262144 -1 -1 0;
+#X obj 567 487 r \$0-select;
+#X floatatom 567 508 5 0 0 0 - - -;
+#X text 357 37 Low Pass;
+#X text 357 57 High Pass;
+#X text 356 79 Band Pass;
+#X obj 132 367 s~ \$0-raw_signal;
+#X obj 132 425 r~ \$0-raw_signal;
+#X obj 277 425 r~ \$0-raw_signal;
+#X obj 422 405 r~ \$0-raw_signal;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 5 0 6 0;
+#X connect 6 0 33 0;
+#X connect 7 0 0 0;
+#X connect 8 0 2 1;
+#X connect 12 0 26 0;
+#X connect 14 0 15 0;
+#X connect 15 0 12 1;
+#X connect 17 0 18 0;
+#X connect 18 0 19 1;
+#X connect 19 0 26 1;
+#X connect 20 0 21 0;
+#X connect 21 0 22 1;
+#X connect 22 0 26 2;
+#X connect 23 0 25 0;
+#X connect 25 0 22 2;
+#X connect 26 0 2 0;
+#X connect 28 0 29 0;
+#X connect 29 0 26 3;
+#X connect 34 0 12 0;
+#X connect 35 0 19 0;
+#X connect 36 0 22 0;
