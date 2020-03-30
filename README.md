@@ -1,14 +1,14 @@
 # PureData_Workshop
-All the materials you'll need for the NUSOUND PureData Workshop.
+This repository contains all the materials you'll need for the NUSOUND PureData Workshop.
 All patches were made using pd version 0.48.1.
 DOWNLOAD PURE DATA: https://puredata.info/downloads/pure-data
 
 There are 3 "stages" to this project, represented by 3 Pure Data Projects.
-Stage 1 uses only a single .pd file, while stages 2 and 3 use mutliple files (hence the folders).
+Stage 1 uses only a single `.pd` file, while stages 2 and 3 use multiple files (hence the folders).
 Each stage has two versions: a "ref" version for reference, and a "diy" version.
 The reference versions are completely finished while the diy versions have all the blocks
 but still need all the connections to be made. This gives you three choices:
-* Create your own project and build everything from scracth
+* Create your own project and build everything from scratch
 * Open the diy files and fill in the connections
 * Just use the reference projects and have fun playing the synths
 
@@ -17,8 +17,8 @@ Either way, the reference files are there to show you what the finished patch sh
 Here's a brief summary of each stage:
 
 ## Stage 1
-* Monophonic sawtooth synth with a volume slider
-* Uses basic MIDI processing and waveform generation
+* Monophonic (one note at a time) sawtooth synth with a volume slider
+* Uses basic MIDI processing and waveform generation (see MIDI setup instructions below)
 
 ## Stage 2
 * Sawtooth synth with 8-voice polyphony and an ADSR envelope
@@ -29,7 +29,7 @@ Here's a brief summary of each stage:
 	* note.pd: generates tones based on the values passed to it by main.pd
 	* adsr.pd: generates an envelope that modulates the dynamics of each note
 ## Stage 3
-* Sawtooth synth with 8-voice polyphony, ADSR envelope and parameter-controlled filter
+* Sawtooth synth with 8-voice polyphony, ADSR envelope, and a parameter-controlled filter
 * Builds upon skills learned in stage 2
 * filter.pd adjusts the frequency content of each note according to its four parameters:
 	* Start: starting frequency
