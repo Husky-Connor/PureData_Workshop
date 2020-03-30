@@ -12,7 +12,7 @@ but still need all the connections to be made. This gives you three choices:
 * Open the diy files and fill in the connections
 * Just use the reference projects and have fun playing the synths
 
-Either way, the reference files are there to show you what the finished patch should look like.
+Either way, the reference files are there to show you what the finished patch should look like. They also include blurbs that walk you through what is going on in the patch! If you get stuck or want to go even further, hit up this comprehensive tutorial on Programming Electronic Music in Pd: http://www.pd-tutorial.com/english/index.html
 
 Here's a brief summary of each stage:
 
