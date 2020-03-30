@@ -10,7 +10,7 @@
 #X obj 163 40 r time;
 #X obj 61 135 pack 0 0 0;
 #X obj 61 163 route 0;
-#X text 156 98 Here we convert out input into a bang because we don't
+#X text 156 98 Here we convert our input into a bang because we don't
 care about the actual value. the "f" object takes in the bang and outputs
 the start frequency value as a "float" (high precision value basically).
 The "t" object then sends the start frequency to "line~" to initialize

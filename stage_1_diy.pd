@@ -18,12 +18,6 @@ frequency;
 given by mtof. Since this is a subtractive synth \, we use a sawtooth
 wave to start with all the harmonics. NOTE: a phasor~ signal has a
 signal rnage of 0 to 1 by default.;
-#X text 139 520 The "/" object divides the input by its argument (127
-in this case) NOTE: there is always a space between and object definition
-and its arguments. 127 comes from the range of velocity values from
-the MIDI input. Now velocity ranges from 0 to 1 \, allowing us to easily
-scale down our signal's amplitude by multiplying the signal by the
-adjusted velocity value using the "*~" object;
 #X text 88 26 "notein" process MIDI data The out pins left-to-right
 are: pitch \, velocity \, channel;
 #X text 110 141 "pack" takes in multiple arguments and packages them
@@ -46,11 +40,6 @@ The last outlet outputs everything that cannot be sent via the other
 outlets. Voice is the first value in our list \, so we only route a
 list hat contains a voice value of one \, which is the only voice value
 possible given out "poly" object.;
-#X text 76 700 "dac~" converts are digital signal to an analog output
-via our soundcard. Depending on the settings within Pure Data \, this
-could mean your headphone jack \, your built-in speakers or any other
-audio device. The two inlets represent Left and Right audio channels.
-;
 #X text 275 637 The volume slider works exactly like our velocity operation.
 The slider ranges from 0 to 1 and the output is multiplied by the signal
 \, meaning the amplitude scales with the slider. Right click on sliders
@@ -58,3 +47,16 @@ to view their properties!;
 #X text 114 347 "unpack" reverts the output of pack back into multiple
 outputs. Since voice was only used for routing \, there are only two
 values left to unpack: pitch and velocity.;
+#X text 76 700 "dac~" converts the digital signal to an analog output
+via our soundcard. Depending on the settings within Pure Data \, this
+could mean your headphone jack \, your built-in speakers or any other
+audio device. The two inlets represent Left and Right audio channels.
+;
+#X text 139 520 The "/" object divides the input by its argument (127
+in this case) NOTE: there is always a space between and object definition
+and its arguments. 127 comes from the range of velocity values from
+the MIDI input. Now our value ranges from 0 to 1 \, allowing us to
+easily scale down our signal's amplitude by multiplying the signal
+by the adjusted velocity value using the "*~" object. NOTE: "~" means
+that it is a signal object. "*" operates on values while "*~" can operate
+on signals like the one from "phasor~"!;
