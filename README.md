@@ -3,6 +3,13 @@ This repository contains all the materials you'll need for the NUSOUND PureData 
 All patches were made using pd version 0.48.1.
 DOWNLOAD PURE DATA: https://puredata.info/downloads/pure-data
 
+## Download Instructions
+Click the green "Clone or Download" button above and select 
+"Download ZIP". Unzip the package on your machine and you're 
+good to go!
+![alt text](./assets/dl_graphic.png)
+
+## Overview
 There are 3 "stages" to this project, represented by 3 Pure Data Projects.
 Stage 1 uses only a single `.pd` file, while stages 2 and 3 use multiple files (hence the folders).
 Each stage has two versions: a "ref" version for reference, and a "diy" version.
@@ -37,7 +44,7 @@ Here's a brief summary of each stage:
 	* Time: time it takes to move from Start to End
 	* Q: the q factor of the filter (try playing with the value to figure out what it does before googling it!)
 
-## MIDI SETUP
+## MIDI Setup
 * We can help you setup MIDI control, but here's a useful link if you want to do it yourself:
 http://write.flossmanuals.net/pure-data/using-midi/
 
