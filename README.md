@@ -67,6 +67,15 @@ it changes, or the bang is clicked. This is why the bang is useful. It allows us
 
 ![alt text](./assets/patch.gif)
 
+### Enabling Audio
+To allow Pd to compute audio signals and let you hear stuff,
+you'll need to make sure you have "Audio on" in the console
+window. Clicking the little box next to "DSP" will enable
+"Digital Signal Processing". If you ever find yourself unable
+to hear anything, check this option first!
+
+![alt text](./assets/audio.png)
+
 ### More Info
 
 There is a whole lot more to learn about Pd, so if you get stuck or want to go even further, hit up this comprehensive tutorial on Programming Electronic Music in Pd: http://www.pd-tutorial.com/english/index.html
