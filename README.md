@@ -24,7 +24,7 @@ This workshop requires a MIDI controller to play notes; however, that doesn't me
 `midi.pd` that sends MIDI notes, so you just have to configure 
 PureData to use the same MIDI device for input and output.
 
-First, go to "Media > MIDI Settings..."
+First, go to `Media > MIDI Settings...`
 ![alt text](./assets/midi_menu.png)
 
 Then, set both the Input and Output Devices to the same device
@@ -48,7 +48,7 @@ Use your keyboard to name the object. The name will define
 its behaviour. Here, we will make a print object, which outputs
 data to the console (the window on the right).
 
-Go to: "put > Object (cmd+1)"
+Go to: `put > Object (cmd+1)`
 
 ![alt text](./assets/object.gif)
 
@@ -56,7 +56,7 @@ Go to: "put > Object (cmd+1)"
 Creating a number works the same way as creating an object; however,
 you don't need to name a number.
 
-Go to: "put > Number (cmd+3)"
+Go to: `put > Number (cmd+3)`
 
 ![alt text](./assets/number.gif)
 
@@ -67,7 +67,7 @@ positions of our objects. However, you will notice that you can't
 edit the value of our number object. To do this, we need to exit
 edit mode. 
 
-Go to "Edit > Edit Mode (cmd+E)"
+Go to `Edit > Edit Mode (cmd+E)`
 
 ![alt text](./assets/edit_mode.gif)
 
@@ -76,7 +76,7 @@ A bang is a generic momentary message in PureData .
 It doesn't really have a value, so it's just a good way to activate
 our number object without changing a value.
 
-Go to: "put > Bang (shift+cmd+B)"
+Go to: `put > Bang (shift+cmd+B)`
 
 ![alt text](./assets/bang.gif)
 
@@ -105,7 +105,7 @@ There is a whole lot more to learn about Pd, so if you get stuck or want to go e
 There are 3 "stages" to this project, represented by 3 PureData Projects.
 Stage 1 uses only a single `.pd` file, while stages 2 and 3 use multiple files (hence the folders). 
 
-NOTE: you only need to open the `main.pd` file.
+NOTE: you only need to open the `main.pd` to use the patch.
 
 Each stage has two versions: a "ref" version for reference, and a "diy" version.
 The reference versions are completely finished while the diy versions have all the blocks
