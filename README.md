@@ -9,6 +9,68 @@ Click the green "Clone or Download" button above and select
 good to go!
 ![alt text](./assets/dl_graphic.png)
 
+## Using Pd
+
+### Creating an Object
+To create an Object, go to the Put menu and select Object.
+A blank rectangle will appear in our patch (the window on the right).
+Use your keyboard to name the object. The name will define
+its behaviour. Here, we will make a print object, which outputs
+data to the console (the window on the right).
+
+Go to: "put > Object (cmd+1)"
+
+![alt text](./assets/object.gif)
+
+### Creating a Number
+Creating a number works the same way as creating an object; however,
+you don't need to name a number.
+
+Go to: "put > Number (cmd+3)"
+
+![alt text](./assets/number.gif)
+
+### Edit Mode
+Up until now, we have been in "Edit Mode" (denoted by the [edit]
+text next to our file name). This allows us to edit the name and 
+positions of our objects. However, you will notice that you can't
+edit the value of our number object. To do this, we need to exit
+edit mode. 
+
+Go to "Edit > Edit Mode (cmd+E)"
+
+![alt text](./assets/edit_mode.gif)
+
+### Creating a Bang
+A bang is a generic momentary message in Pure Data .
+It doesn't really have a value, so it's just a good way to activate
+our number object without changing a value.
+
+Go to: "put > Bang (shift+cmd+B)"
+
+![alt text](./assets/bang.gif)
+
+### Making Connections
+Finally, to put our patch together, we need to connect the outlets
+(black lines on the bottom) to the inlets (black lines on top). Note
+that Pd's signal flow is vertical from the top down. While in edit
+mode, move your mouse over the black lines until the cursor becomes 
+a circle. Click and drag to the next object until your cursor becomes
+a circle again. Release and voila! You've made a connection!
+
+![alt text](./assets/connections.gif)
+
+### Using the Patch
+To use the patch, exit edit mode and click the bang object. Wow!
+Neat! Note that the numbers value only gets printed in two cases:
+it changes, or the bang is clicked. This is why the bang is useful. It allows us to send the numbers value down stream without having to change it. 
+
+![alt text](./assets/patch.gif)
+
+### More Info
+
+There is a whole lot more to learn about Pd, so if you get stuck or want to go even further, hit up this comprehensive tutorial on Programming Electronic Music in Pd: http://www.pd-tutorial.com/english/index.html
+
 ## Overview
 There are 3 "stages" to this project, represented by 3 Pure Data Projects.
 Stage 1 uses only a single `.pd` file, while stages 2 and 3 use multiple files (hence the folders).
@@ -19,7 +81,7 @@ but still need all the connections to be made. This gives you three choices:
 * Open the diy files and fill in the connections
 * Just use the reference projects and have fun playing the synths
 
-Either way, the reference files are there to show you what the finished patch should look like. They also include blurbs that walk you through what is going on in the patch! If you get stuck or want to go even further, hit up this comprehensive tutorial on Programming Electronic Music in Pd: http://www.pd-tutorial.com/english/index.html
+Either way, the reference files are there to show you what the finished patch should look like. They also include blurbs that walk you through what is going on in the patch! 
 
 Here's a brief summary of each stage:
 
