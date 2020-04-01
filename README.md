@@ -1,13 +1,43 @@
 # PureData_Workshop
 This repository contains all the materials you'll need for the NUSOUND PureData Workshop.
 All patches were made using pd version 0.48.1.
-DOWNLOAD PURE DATA: https://puredata.info/downloads/pure-data
+
+Download Pd: https://puredata.info/downloads/pure-data
 
 ## Download Instructions
 Click the green "Clone or Download" button above and select 
 "Download ZIP". Unzip the package on your machine and you're 
 good to go!
 ![alt text](./assets/dl_graphic.png)
+
+## Audio
+To allow Pd to compute audio signals and let you hear stuff,
+you'll need to make sure you have "Audio on" in the console
+window. Clicking the little box next to "DSP" will enable
+"Digital Signal Processing". If you ever find yourself unable
+to hear anything, check this option first!
+
+![alt text](./assets/audio.png)
+
+## MIDI Setup
+This workshop requires a MIDI controller to play notes; however, that doesn't mean you need a physical one! I have included a patch called
+`midi.pd` that sends MIDI notes, so you just have to configure 
+PureData to use the same MIDI device for input and output.
+
+First, go to "Media > MIDI Settings..."
+![alt text](./assets/midi_menu.png)
+
+Then, set both the Input and Output Devices to the same device
+![alt text](./assets/midi_settings.png)
+
+Now, if you open `midi.pd`, you can send notes to any of the patches
+in this workshop! Use the sliders to change the note value and the 
+duration of the note. Hitting "Play Note" will send the previously
+selected note value again.
+![alt text](./assets/midi_pd.png)
+
+If you get stuck, or need help setting up a hardware device, here is more documentation:
+http://write.flossmanuals.net/pure-data/using-midi/
 
 ## Using Pd
 
@@ -42,7 +72,7 @@ Go to "Edit > Edit Mode (cmd+E)"
 ![alt text](./assets/edit_mode.gif)
 
 ### Creating a Bang
-A bang is a generic momentary message in Pure Data .
+A bang is a generic momentary message in PureData .
 It doesn't really have a value, so it's just a good way to activate
 our number object without changing a value.
 
@@ -67,22 +97,16 @@ it changes, or the bang is clicked. This is why the bang is useful. It allows us
 
 ![alt text](./assets/patch.gif)
 
-### Enabling Audio
-To allow Pd to compute audio signals and let you hear stuff,
-you'll need to make sure you have "Audio on" in the console
-window. Clicking the little box next to "DSP" will enable
-"Digital Signal Processing". If you ever find yourself unable
-to hear anything, check this option first!
-
-![alt text](./assets/audio.png)
-
 ### More Info
 
 There is a whole lot more to learn about Pd, so if you get stuck or want to go even further, hit up this comprehensive tutorial on Programming Electronic Music in Pd: http://www.pd-tutorial.com/english/index.html
 
 ## Overview
-There are 3 "stages" to this project, represented by 3 Pure Data Projects.
-Stage 1 uses only a single `.pd` file, while stages 2 and 3 use multiple files (hence the folders).
+There are 3 "stages" to this project, represented by 3 PureData Projects.
+Stage 1 uses only a single `.pd` file, while stages 2 and 3 use multiple files (hence the folders). 
+
+NOTE: you only need to open the `main.pd` file.
+
 Each stage has two versions: a "ref" version for reference, and a "diy" version.
 The reference versions are completely finished while the diy versions have all the blocks
 but still need all the connections to be made. This gives you three choices:
@@ -114,10 +138,6 @@ Here's a brief summary of each stage:
 	* End: ending frequency
 	* Time: time it takes to move from Start to End
 	* Q: the q factor of the filter (try playing with the value to figure out what it does before googling it!)
-
-## MIDI Setup
-* We can help you setup MIDI control, but here's a useful link if you want to do it yourself:
-http://write.flossmanuals.net/pure-data/using-midi/
 
 Every file has comments to help you understand the functionality of each block and what's going on.
 Feel free to download the patches and remix them!
